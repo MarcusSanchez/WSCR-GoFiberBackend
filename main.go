@@ -25,7 +25,7 @@ func main() {
 func initFiber() *fiber.App {
 	app := fiber.New()
 	app.Static("/", "./public")
-	app.Use("/ws", isWebsocket.New())
+	app.Use("/ws/:name/:room", isWebsocket.New())
 	app.Use(cors.New())
 	app.Use(recovery.New())
 	return app
